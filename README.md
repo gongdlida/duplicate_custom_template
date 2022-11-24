@@ -1,4 +1,7 @@
-매번 새로운 프로젝트를 생성할 때마다 동일한 환경을 세팅하는 것이 번거로워 만든 폴더복사 기능입니다.
+매번 새로운 프로젝트를 생성할 때마다 동일한 환경을 세팅하는 것이 번거로워 만든 폴더복사 기능입니다.<br/>
+작은 단위의 스크립트부터, 나만의 작은 보일러 플레이트를 만든다는 느낌으로 다양하게 사용하시면 됩니다.<br/>
+Templates에 있는 현재 폴더들은 모두 제거하시고 사용하시면 됩니다. : )<br/>
+피드백은 언제나 환영입니다. issue를 이용해서 피드백 부탁드리겠습니다.
 
 ## 설정방법
 1. mac OS사용자일 경우, ~/Desktop에 repository를 clone 하신 후 alias를 설정해줍니다. <br/>
@@ -33,4 +36,6 @@ $ alias {사용자가 원하는 키워드를 작성해주세요.}="node ~/duplic
 <img width="570" alt="image" src="https://user-images.githubusercontent.com/67903181/203673220-0402237a-a680-4f27-90ed-5e171b83f831.png">
 6. 프로젝트가 생성된 것을 확인하실 수 있습니다.
 <img width="568" alt="image" src="https://user-images.githubusercontent.com/67903181/203673582-bab9823d-cb54-4d52-98f6-0bcc5f1a8a64.png">
+
+
 
