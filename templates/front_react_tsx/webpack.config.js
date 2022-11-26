@@ -3,33 +3,33 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname,"src","index.tsx"),
+  entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
-  
+
   devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
       {
-        test: /\.tsx$/,
+        test: /\.(ts|tsx)?$/,
         exclude: /node_modules/,
-        loader: 'ts-loader'
+        loader: 'ts-loader',
       },
     ],
   },
-  resolve:{
-    extensions:[".tsx",".ts",".js"]
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname,"./dist/index.html"),
+      template: path.resolve(__dirname, './public/index.html'),
     }),
   ],
   devServer: {
