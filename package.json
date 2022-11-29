@@ -2,10 +2,10 @@
   "name": "Custom_Modules",
   "version": "1.0.0",
   "main": "index.js",
+  "license": "MIT",
   "scripts": {
     "add-project": "node ./duplicate_template"
   },
-  "license": "MIT",
   "devDependencies": {
     "inquirer": "8.0.0"
   }
