@@ -8,6 +8,19 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
+  cache: {
+    type: 'filesystem',
+    // version: createEnvironmentHash(env.raw),
+    cacheDirectory: path.resolve(__dirname, 'node_modules/.cache'),
+    store: 'pack',
+    buildDependencies: {
+      defaultWebpack: ['webpack/lib/'],
+      config: [__filename],
+      tsconfig: [path.resolve(__dirname,"tsconfig.json")].filter(f =>
+        fs.existsSync(f)
+      ),
+    },
+  },
   devtool: 'source-map',
   module: {
     rules: [
@@ -21,6 +34,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
+        exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
     ],

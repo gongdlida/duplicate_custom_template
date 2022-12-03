@@ -1,12 +1,27 @@
 const path = require('path')
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+  },
+  cache: {
+    type: 'filesystem',
+    // version: createEnvironmentHash(env.raw),
+    cacheDirectory: path.resolve(__dirname, 'node_modules/.cache'),
+    store: 'pack',
+    buildDependencies: {
+      defaultWebpack: ['webpack/lib/'],
+      config: [__filename],
+      tsconfig: [path.resolve(__dirname,"tsconfig.json")].filter(f =>
+        fs.existsSync(f)
+      ),
+    },
   },
 
   devtool: 'source-map',
@@ -24,6 +39,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
+        exclude: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
     ],
@@ -34,7 +50,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './public/index.html'),
-    }),
+    })
   ],
   devServer: {
     port: 4000,
